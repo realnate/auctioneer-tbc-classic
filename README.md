@@ -1,4 +1,4 @@
-# auctioneer-tbc
+# auctioneer-tbc-classic
 
 This is a copy of Auctioneer for Classic World of Warcraft that has minimal modifications to support Burning Crusade Classic, aka TBC Classic
 
