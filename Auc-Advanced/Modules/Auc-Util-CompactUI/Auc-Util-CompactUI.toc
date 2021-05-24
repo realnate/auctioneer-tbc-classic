@@ -1,7 +1,7 @@
 ## Title: Auc:Util:Compact UI
 ## Notes: Provides additional features and enhancement of the Auction House's "Browse" frame.
 ##
-## Interface: 80200
+## Interface: 20501
 ## Dependancies: Auc-Advanced
 ##
 ## Version: 8.2.6452 (SwimmingSeadragon)

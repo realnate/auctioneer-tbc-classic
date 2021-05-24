@@ -1,7 +1,7 @@
 ## Title: Auc:Util:AutoMagic
 ## Notes: Automates some repetitive tasks, such as auto-selling and bulk mailing.
 ##
-## Interface: 80200
+## Interface: 20501
 ## Dependancies: Auc-Advanced
 ## OptionalDependencies: Auc-Util-Appraiser, Enchantrix, Auc-Util-ItemSuggest, LibDataBroker
 ##

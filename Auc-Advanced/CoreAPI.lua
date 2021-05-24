@@ -548,6 +548,7 @@ local ActiveProgressBars = {}
 -- generate new bars as needed
 local function newBar()
 	local bar = CreateFrame("STATUSBAR", nil, UIParent, "TextStatusBar")
+	if not bar.SetBackdrop then Mixin(bar, BackdropTemplateMixin) end
 	bar:SetWidth(300)
 	bar:SetHeight(18)
 	bar:SetBackdrop({

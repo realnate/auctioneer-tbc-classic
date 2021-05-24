@@ -1,7 +1,7 @@
 ## Title: Configator |cff224477(lib)
 ## Notes: Configator allows authors to easily construct a graphical user configuration interface.
 ##
-## Interface: 80200
+## Interface: 20501
 ## LoadOnDemand: 0
 ##
 ## Version: 8.2.6341 (SwimmingSeadragon)

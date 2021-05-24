@@ -1,7 +1,7 @@
 ## Title: Auc:Util:Search UI
 ## Notes: Auctioneer utility module that aids in the search for items posted on the Auction House.
 ##
-## Interface: 80200
+## Interface: 20501
 ## Dependencies: Auc-Advanced, Stubby
 ##
 ## Version: 8.2.6464 (SwimmingSeadragon)

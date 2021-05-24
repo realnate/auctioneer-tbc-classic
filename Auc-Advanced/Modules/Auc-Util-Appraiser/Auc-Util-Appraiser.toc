@@ -1,5 +1,5 @@
 ## Title: Auc:Util:Appraiser
-## Interface: 80200
+## Interface: 20501
 ## Dependencies: Stubby, Auc-Advanced
 ##
 ## Version: 8.2.6417 (SwimmingSeadragon)

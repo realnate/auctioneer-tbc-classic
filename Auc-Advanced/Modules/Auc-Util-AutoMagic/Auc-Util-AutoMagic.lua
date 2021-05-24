@@ -41,7 +41,7 @@ local amBTMRule, itemName, itemID, _
 function lib.GetName()
 	return libName
 end
-local autosellframe = CreateFrame("Frame", "autosellframe", UIParent); autosellframe:Hide()
+local autosellframe = CreateFrame("Frame", "autosellframe", UIParent, BackdropTemplateMixin and "BackdropTemplate"); autosellframe:Hide()
 local autoselldata = {}
 local autosell = {}
 local GetPrice = function() return 0,0 end --fake getPrice when Appraiser is not available
@@ -605,7 +605,7 @@ function lib.makeautosellgui()
 	autosellframe.removeitem.help:SetWidth(90)
 
 	--Create the autosell list results frame
-	autosellframe.resultlist = CreateFrame("Frame", nil, autosellframe)
+	autosellframe.resultlist = CreateFrame("Frame", nil, autosellframe, BackdropTemplateMixin and "BackdropTemplate")
 	autosellframe.resultlist:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		edgeFile = "Interface/Tooltips/UI-Tooltip-Border",
@@ -626,7 +626,7 @@ function lib.makeautosellgui()
 	--use our custom sort method not scrollsheets
 	autosellframe.resultlist.sheet.CustomSort = lib.CustomSort
 	--Create the bag contents frame
-	autosellframe.baglist = CreateFrame("Frame", nil, autosellframe)
+	autosellframe.baglist = CreateFrame("Frame", nil, autosellframe, BackdropTemplateMixin and "BackdropTemplate")
 	autosellframe.baglist:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		edgeFile = "Interface/Tooltips/UI-Tooltip-Border",

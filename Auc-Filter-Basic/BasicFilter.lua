@@ -394,7 +394,7 @@ end
 
 --[[ Prompt and Dialog Setup ]]--
 
-private.IgnorePrompt = CreateFrame("Frame", nil, UIParent)
+private.IgnorePrompt = CreateFrame("Frame", nil, UIParent, BackdropTemplateMixin and "BackdropTemplate")
 private.IgnorePrompt:Hide()
 private.IgnorePrompt:SetBackdrop({
 	  bgFile = "Interface/Tooltips/ChatBubble-Background",

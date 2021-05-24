@@ -1104,7 +1104,7 @@ function private.CreateAuctionFrames()
 	frame.money:SetWidth(256)
 	frame.money:SetHeight(32)
 
-	frame.backing = CreateFrame("Frame", nil, frame)
+	frame.backing = CreateFrame("Frame", nil, frame, BackdropTemplateMixin and "BackdropTemplate")
 	frame.backing:SetPoint("TOPLEFT", frame, "TOPLEFT", 17, -70)
 	frame.backing:SetPoint("BOTTOMRIGHT", frame.money, "TOPLEFT", 145, 50)
 	frame.backing:SetBackdrop({ bgFile="Interface\\AddOns\\Auc-Advanced\\Textures\\BlackBack", edgeFile="Interface\\AddOns\\Auc-Advanced\\Textures\\WhiteCornerBorder", tile=1, tileSize=8, edgeSize=8, insets={left=3, right=3, top=3, bottom=3} })
@@ -1149,6 +1149,7 @@ function private.MakeGuiConfig()
 	local selected
 
 	gui = Configator:Create(setter,getter, 900, 500, 5, 350, 20, 5)
+	if not gui.SetBackdropColor then Mixin(gui, BackdropTemplateMixin) end
 	gui:SetBackdropColor(0,0,0,1)
 
 	gui.expandGap = 25
@@ -1193,7 +1194,7 @@ function private.MakeGuiConfig()
 		GameTooltip:Hide()
 	end
 
-	gui.frame = CreateFrame("Frame", nil, gui)
+	gui.frame = CreateFrame("Frame", nil, gui, BackdropTemplateMixin and "BackdropTemplate")
 	gui.frame:SetPoint("TOP", gui, "TOP", 0, -115)
 	gui.frame:SetPoint("BOTTOMRIGHT", gui.Done, "TOPRIGHT", 0,25)
 	gui.frame:SetPoint("LEFT", gui:GetButton(1), "RIGHT", 5,0)
@@ -1787,6 +1788,7 @@ function private.MakeGuiConfig()
 	end -- of bid button/box cluster
 
 	gui.frame.progressbar = CreateFrame("STATUSBAR", nil, gui.frame, "TextStatusBar")
+	if not gui.frame.progressbar.SetBackdrop then Mixin(gui.frame.progressbar, BackdropTemplateMixin) end
 	gui.frame.progressbar:SetWidth(400)
 	gui.frame.progressbar:SetHeight(30)
 	gui.frame.progressbar:SetPoint("BOTTOM", gui.frame, "BOTTOM", 0, 100)

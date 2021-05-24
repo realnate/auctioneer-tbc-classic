@@ -477,7 +477,7 @@ function private.SetupConfigGui(gui)
 	gui.scalewidth = 0.4
 	local content = gui.tabs[id][3]
 
-	local box = CreateFrame("Frame", nil, content)
+	local box = CreateFrame("Frame", nil, content, BackdropTemplateMixin and "BackdropTemplate")
 
 	local filter = gui:AddControl(id, "Text", 0.01, 1, "util.appraiser.filter", "");
 	filter.textEl:Hide()
@@ -535,7 +535,7 @@ function private.SetupConfigGui(gui)
 	})
 	box:SetBackdropColor(0, 0, 0, 0.8)
 
-	local scroller = CreateFrame("Slider", "AucApraiserItemScroll", content);
+	local scroller = CreateFrame("Slider", "AucApraiserItemScroll", content, BackdropTemplateMixin and "BackdropTemplate");
 	scroller:SetPoint("TOPLEFT", private.items[1], "TOPRIGHT", 0,0)
 	scroller:SetPoint("BOTTOMLEFT", private.items[8], "BOTTOMRIGHT", 0,0)
 	scroller:SetWidth(20)

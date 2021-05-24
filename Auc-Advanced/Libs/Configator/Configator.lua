@@ -179,7 +179,7 @@ function lib:Create(setter, getter, dialogWidth, dialogHeight, gapWidth, gapHeig
 	gui:SetHeight(dialogHeight)
 	gui:EnableMouse(true)
 
-	gui.Backdrop = CreateFrame("Frame", name.."Backdrop", gui)
+	gui.Backdrop = CreateFrame("Frame", name.."Backdrop", gui, BackdropTemplateMixin and "BackdropTemplate")
 	gui.Backdrop:SetAllPoints(gui)
 	gui.Backdrop:SetBackdrop({
 		bgFile = "Interface/Tooltips/ChatBubble-Background",
@@ -319,7 +319,7 @@ end
 
 -- Create our help window
 if not lib.help then
-	lib.help = CreateFrame("Frame", "ConfigatorHelpFrame", UIParent)
+	lib.help = CreateFrame("Frame", "ConfigatorHelpFrame", UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	lib.help:SetBackdrop({
 		bgFile = "Interface/Stationery/StationeryTest1",
 		edgeFile = "Interface/TUTORIALFRAME/TUTORIALFRAMEBORDER",
@@ -652,7 +652,7 @@ function kit:ZeroFrame()
 	local frame, content
 
 	local myName = lib.CreateAnonName()
-	frame = CreateFrame("Frame", myName.."Frame", self)
+	frame = CreateFrame("Frame", myName.."Frame", self, BackdropTemplateMixin and "BackdropTemplate")
 	content = CreateFrame("Frame", myName.."Content", frame)
 
 	frame.id = id
@@ -805,7 +805,7 @@ function kit:AddTab(tabName, catId, gapWidth, gapHeight, topOffset, leftOffset)
 	self.config.isZero = false
 
 	local myName = lib.CreateAnonName()
-	frame = CreateFrame("Frame", myName.."Frame", self)
+	frame = CreateFrame("Frame", myName.."Frame", self, BackdropTemplateMixin and "BackdropTemplate")
 	content = CreateFrame("Frame", myName.."Content", frame)
 
 	if not gapWidth then gapWidth = self.gapWidth or 0 end

@@ -1920,7 +1920,7 @@ function private.CreateFrames()
 		private.gui:ActivateTab(private.guiId)
 	end)
 
-	frame.itembox = CreateFrame("Frame", nil, frame)
+	frame.itembox = CreateFrame("Frame", nil, frame, BackdropTemplateMixin and "BackdropTemplate")
 	frame.itembox:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		edgeFile = "Interface/Tooltips/UI-Tooltip-Border",
@@ -1963,7 +1963,7 @@ function private.CreateFrames()
 	end)
 
 	-- "Show:" label
-	frame.itembox.showText = CreateFrame("Frame", nil, frame.itembox)
+	frame.itembox.showText = CreateFrame("Frame", nil, frame.itembox, BackdropTemplateMixin and "BackdropTemplate")
 	frame.itembox.showText:SetPoint("BOTTOMRIGHT", frame.itembox.showHidden, "BOTTOMLEFT", 0,0)
 	frame.itembox.showText.text = frame.itembox.showText:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 	frame.itembox.showText.text:SetAllPoints(frame.itembox.showText)
@@ -2088,7 +2088,7 @@ function private.CreateFrames()
 
 		item:SetHighlightTexture("Interface\\FriendsFrame\\UI-FriendsFrame-HighlightBar")
 	end
-	local scroller = CreateFrame("Slider", "AucAppraiserItemScroll", frame.itembox)
+	local scroller = CreateFrame("Slider", "AucAppraiserItemScroll", frame.itembox, BackdropTemplateMixin and "BackdropTemplate")
 	scroller:SetPoint("TOPRIGHT", frame.itembox, "TOPRIGHT", -1,-3)
 	scroller:SetPoint("BOTTOM", frame.itembox, "BOTTOM", 0,3)
 	scroller:SetWidth(20)
@@ -2110,7 +2110,7 @@ function private.CreateFrames()
 	frame.itembox:EnableMouseWheel(true)
 	frame.itembox:SetScript("OnMouseWheel", function(obj, dir) scroller:SetValue(scroller:GetValue() - dir) frame.SetScroll() end)
 
-	frame.salebox = CreateFrame("Frame", nil, frame)
+	frame.salebox = CreateFrame("Frame", nil, frame, BackdropTemplateMixin and "BackdropTemplate")
 	frame.salebox:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		edgeFile = "Interface/Tooltips/UI-Tooltip-Border",
@@ -2416,12 +2416,18 @@ function private.CreateFrames()
 	frame.salebox.bulk.label:SetText(_TRANS('APPR_Interface_EnableBatchPosting') )--Enable batch posting
 
 	frame.salebox.bid = CreateFrame("Frame", "AppraiserSaleboxBid", frame.salebox, "MoneyInputFrameTemplate")
+	if not frame.salebox.bid.SetBackdrop then Mixin(frame.salebox.bid, BackdropTemplateMixin) end
 	frame.salebox.bid:SetPoint("RIGHT", frame.salebox, "RIGHT", 0, 20)
 	frame.salebox.bid:SetScript("OnEnter", function(self) return frame.SetButtonTooltip(self, _TRANS('APPR_HelpTooltip_EnterBidAmount') ) end)--Enter new bid amount to set a Fixed Price
 	frame.salebox.bid:SetScript("OnLeave", function() return GameTooltip:Hide() end)
 	MoneyInputFrame_SetOnValueChangedFunc(frame.salebox.bid, function() frame.SyncMoneyFrameStackBid() frame.updated = true end)
 	frame.salebox.bid.element = "bid"
 	frame.salebox.bid:Hide()
+
+	if not AppraiserSaleboxBidGold.SetBackdrop then Mixin(AppraiserSaleboxBidGold, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBidSilver.SetBackdrop then Mixin(AppraiserSaleboxBidSilver, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBidCopper.SetBackdrop then Mixin(AppraiserSaleboxBidCopper, BackdropTemplateMixin) end
+
 	AppraiserSaleboxBidGold:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		tile = true, tileSize = 32,
@@ -2449,6 +2455,11 @@ function private.CreateFrames()
 	MoneyInputFrame_SetOnValueChangedFunc(frame.salebox.bid.stack, function() frame.SyncMoneyFrameSingleBid() frame.updated = true end)
 	frame.salebox.bid.stack.element = "bidStack"
 	frame.salebox.bid.stack:Hide()
+
+	if not AppraiserSaleboxBidStackGold.SetBackdrop then Mixin(AppraiserSaleboxBidStackGold, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBidStackSilver.SetBackdrop then Mixin(AppraiserSaleboxBidStackSilver, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBidStackCopper.SetBackdrop then Mixin(AppraiserSaleboxBidStackCopper, BackdropTemplateMixin) end
+
 	AppraiserSaleboxBidStackGold:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		tile = true, tileSize = 32,
@@ -2476,6 +2487,11 @@ function private.CreateFrames()
 	MoneyInputFrame_SetOnValueChangedFunc(frame.salebox.buy, function() frame.SyncMoneyFrameStackBuy() frame.updated = true end)
 	frame.salebox.buy.element = "buy"
 	frame.salebox.buy:Hide()
+
+	if not AppraiserSaleboxBuyGold.SetBackdrop then Mixin(AppraiserSaleboxBuyGold, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBuySilver.SetBackdrop then Mixin(AppraiserSaleboxBuySilver, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBuyCopper.SetBackdrop then Mixin(AppraiserSaleboxBuyCopper, BackdropTemplateMixin) end
+
 	AppraiserSaleboxBuyGold:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		tile = true, tileSize = 32,
@@ -2507,6 +2523,11 @@ function private.CreateFrames()
 	MoneyInputFrame_SetOnValueChangedFunc(frame.salebox.buy.stack, function() frame.SyncMoneyFrameSingleBuy() frame.updated = true end)
 	frame.salebox.buy.stack.element = "buyStack"
 	frame.salebox.buy.stack:Hide()
+
+	if not AppraiserSaleboxBuyStackGold.SetBackdrop then Mixin(AppraiserSaleboxBuyStackGold, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBuyStackSilver.SetBackdrop then Mixin(AppraiserSaleboxBuyStackSilver, BackdropTemplateMixin) end
+	if not AppraiserSaleboxBuyStackCopper.SetBackdrop then Mixin(AppraiserSaleboxBuyStackCopper, BackdropTemplateMixin) end
+
 	AppraiserSaleboxBuyStackGold:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		tile = true, tileSize = 32,
@@ -2648,7 +2669,7 @@ function private.CreateFrames()
 		end
 	end
 
-	frame.manifest = CreateFrame("Frame", nil, frame)
+	frame.manifest = CreateFrame("Frame", nil, frame, BackdropTemplateMixin and "BackdropTemplate")
 	frame.manifest:SetBackdrop({
 		bgFile = "Interface\\Tooltips\\ChatBubble-Background",
 		edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
@@ -2752,7 +2773,7 @@ function private.CreateFrames()
 	end
 	frame.manifest.lines = lines
 
-	frame.imageview = CreateFrame("Frame", nil, frame)
+	frame.imageview = CreateFrame("Frame", nil, frame, BackdropTemplateMixin and "BackdropTemplate")
 	frame.imageview:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		edgeFile = "Interface/Tooltips/UI-Tooltip-Border",
@@ -2864,7 +2885,7 @@ function private.CreateFrames()
 
 	frame.imageview.sheet:EnableSelect(true)
 
-	frame.imageview.purchase = CreateFrame("Frame", nil, frame.imageview)
+	frame.imageview.purchase = CreateFrame("Frame", nil, frame.imageview, BackdropTemplateMixin and "BackdropTemplate")
 	frame.imageview.purchase:SetPoint("TOPLEFT", frame.imageview, "BOTTOMLEFT", 0, 4)
 	frame.imageview.purchase:SetPoint("BOTTOMRIGHT", frame.imageview, "BOTTOMRIGHT", 0, -16)
 	frame.imageview.purchase:SetBackdrop({

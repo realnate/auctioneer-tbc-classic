@@ -335,7 +335,7 @@ end
 if lib.frame then
 	frame = lib.frame
 else
-	frame = CreateFrame("Frame", nil, UIParent)
+	frame = CreateFrame("Frame", nil, UIParent, BackdropTemplateMixin and "BackdropTemplate")
 	frame:SetToplevel(true)
 	--frame:SetClampedToScreen(true)
 	frame:SetFrameStrata("TOOLTIP")
@@ -399,6 +399,7 @@ end
 -- Create a special tooltip just for us
 if not lib.tooltip then
 	lib.tooltip = CreateFrame("GameTooltip", "SlidebarTooltip", UIParent, "GameTooltipTemplate")
+	if not lib.tooltip.SetBackdrop then Mixin(lib.tooltip, BackdropTemplateMixin) end
 	local function hide_tip()
 		lib.tooltip:Hide()
 	end
@@ -459,6 +460,7 @@ if not lib.tooltip then
 			lib.tooltip.schedule = nil
 		end
 	end)
+	
 	lib.tooltip:SetBackdrop({
 		bgFile = "Interface/Tooltips/UI-Tooltip-Background",
 		edgeFile = "Interface/Tooltips/UI-Tooltip-Border",

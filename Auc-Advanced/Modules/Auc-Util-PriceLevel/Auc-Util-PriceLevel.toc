@@ -1,5 +1,5 @@
 ## Title: Auc:Util:Price Level
-## Interface: 80200
+## Interface: 20501
 ## Dependancies: Auc-Advanced
 ##
 ## Version: 8.2.6451 (SwimmingSeadragon)

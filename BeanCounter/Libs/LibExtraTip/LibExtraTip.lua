@@ -40,8 +40,8 @@ if not lib then return end
 LibStub("LibRevision"):Set("$URL: Auc-Advanced/Libs/LibExtraTip/LibExtraTip.lua $","$Rev: 6449 $","5.15.DEV.", 'auctioneer', 'libs')
 
 -- need to know early if we're using Classic or Modern version
-local MINIMUM_CLASSIC = 11300
-local MAXIMUM_CLASSIC = 19999
+local MINIMUM_CLASSIC = 20500
+local MAXIMUM_CLASSIC = 20599
 -- version, build, date, tocversion = GetBuildInfo()
 local _,_,_,tocVersion = GetBuildInfo()
 lib.Classic = (tocVersion > MINIMUM_CLASSIC and tocVersion < MAXIMUM_CLASSIC)

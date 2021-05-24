@@ -1,5 +1,5 @@
 ## Title: Auc:Util:ItemSuggest
-## Interface: 80200
+## Interface: 20501
 ## OptionalDependencies:
 ## Dependencies: Auc-Advanced
 ##
